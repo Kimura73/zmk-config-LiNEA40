@@ -124,15 +124,6 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&none>;
         };
-
-        home_mod: home_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            bindings = <&kp>, <&kp>;
-        };
     };
 
     keymap {
@@ -141,8 +132,8 @@
         default_layer {
             bindings = <
 &kp Q         &kp W      &kp E           &kp R    &kp T                                        &kp Y      &kp U  &kp I      &kp O      &kp P
-&home_mod LSHIFT A  &kp S      &kp D           &kp F    &kp G                                        &kp H      &kp J  &kp K      &kp L      &lt 5 MINUS
-&home_mod LGUI Z    &kp X      &kp C           &kp V    &kp B                                        &kp N      &kp M  &mkp MB1   &mkp MB2   &mkp MB3
+&mt LSHIFT A  &kp S      &kp D           &kp F    &kp G                                        &kp H      &kp J  &kp K      &kp L      &lt 5 MINUS
+&mt LGUI Z    &kp X      &kp C           &kp V    &kp B                                        &kp N      &kp M  &mkp MB1   &mkp MB2   &mkp MB3
 &kp TAB       &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 3 LANG1  &lt 2 SPACE    &lt 4 BACKSPACE  &kp ENTER         &kp COMMA  &lt 6 DOT  &kp ESC
             >;
 
@@ -223,4 +214,9 @@
             sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
         };
     };
+};
+
+&mt {
+    tapping-term-ms = <200>;
+    quick-tap-ms = <200>;
 };
