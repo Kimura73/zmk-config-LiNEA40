@@ -57,7 +57,7 @@
         layers = <SCROLL>;
         input-processors =
             <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            //スクロール方向を逆転,,,
+            //スクロール方向を逆転,,,,
             <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -120,33 +120,29 @@
         homerow_mod: homerow_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-        
             flavor = "balanced";
             tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <125>;
-        
             bindings = <&kp>, <&kp>;
         };
 
         left_hand_mod: left_hand_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-        
             flavor = "hold-preferred";
             tapping-term-ms = <250>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <100>;
-        
             bindings = <&kp>, <&kp>;
-        
+
             hold-trigger-key-positions = <
                 5 6 7 8 9
                 15 16 17 18 19
                 25 26 27 28 29
                 35 36 37 38 39 40
             >;
-        
+
             hold-trigger-on-release;
         };
 
@@ -164,10 +160,10 @@
 
         default_layer {
             bindings = <
-&kp Q         &kp W      &kp E           &kp R    &kp T                                        &kp Y      &kp U  &kp I      &kp O      &kp P
-&homerow_mod LSHIFT A  &kp S      &kp D           &kp F    &kp G                                        &kp H      &kp J  &kp K      &kp L      &lt 5 MINUS
+&kp Q                  &kp W      &kp E           &kp R    &kp T                                        &kp Y      &kp U  &kp I      &kp O      &kp P
+&homerow_mod LSHIFT A  &kp S      &kp D           &kp F    &kp G                                        &kp H      &kp J  &kp K      &kp L      &homerow_mod RIGHT_SHIFT MINUS
 &homerow_mod LGUI Z    &kp X      &kp C           &kp V    &kp B                                        &kp N      &kp M  &mkp MB1   &mkp MB2   &gui_mb3 LGUI MB3
-&kp TAB       &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 3 LANG1  &lt 2 SPACE    &lt 4 BACKSPACE  &kp ENTER         &kp COMMA  &lt 6 DOT  &kp ESC
+&kp TAB                &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 3 LANG1  &lt 2 SPACE    &lt 4 BACKSPACE  &kp ENTER         &kp COMMA  &lt 5 DOT  &lt 6 ESCAPE
             >;
 
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
