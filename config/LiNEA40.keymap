@@ -57,8 +57,7 @@
 
     scroller {
         layers = <SCROLL>;
-        input-processors =
-            <&zip_xy_to_scroll_mapper>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
 
@@ -221,9 +220,9 @@
 
         SCROLL {
             bindings = <
-&trans    &kp LG(LEFT_BRACKET)  &kp UP_ARROW  &kp LG(RIGHT_BRACKET)  &trans                                      &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
+&trans    &kp LG(LEFT_BRACKET)  &kp UP_ARROW  &kp LG(RIGHT_BRACKET)  &kp LC(UP_ARROW)                            &kp KP_MULTIPLY  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
 &trans    &kp LEFT_ARROW        &kp DOWN      &kp RIGHT_ARROW        &kp LS(LC(LG(NUMBER_4)))                    &kp KP_SLASH     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
-&kp HOME  &kp PAGE_DOWN         &kp END       &kp PAGE_UP            &trans                                      &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
+&kp HOME  &kp PAGE_DOWN         &kp END       &kp PAGE_UP            &kp DOWN                                    &kp UNDER        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ENTER
 &trans    &trans                &trans        &trans                 &trans                    &trans    &trans  &kp NUMBER_0                   &kp NUMBER_0  &kp DOT       &kp QUESTION
             >;
 
