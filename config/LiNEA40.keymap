@@ -165,7 +165,7 @@
 &kp TAB                &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 5 LANG1  &lt 2 SPACE    &lt 4 BACKSPACE  &kp ENTER         &kp COMMA  &kp PERIOD  &lt 6 ESCAPE
             >;
 
-            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
+            sensor-bindings = <&re_kp RIGHT LEFT>;
         };
 
         //1
@@ -185,8 +185,8 @@
             bindings = <
 &trans  &kp PIPE   &kp COLON      &kp DOUBLE_QUOTES  &kp MINUS                         &kp DOLLAR   &kp EXCLAMATION  &kp ASTERISK  &kp LEFT_BRACKET      &kp RIGHT_BRACKET
 &trans  &kp SLASH  &kp SEMICOLON  &kp SQT            &kp EQUAL                         &kp AT_SIGN  &kp QUESTION     &kp PLUS      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&trans  &trans     &trans         &kp TILDE          &kp UNDERSCORE                    &kp HASH     &kp AMPERSAND    &kp PERCENT   &kp LESS_THAN         &kp GREATER_THAN
-&trans  &trans     &trans         &trans             &trans          &trans    &trans  &trans                        &trans        &trans                &trans
+&trans  &trans     &trans         &kp GRAVE          &kp TILDE                         &kp HASH     &kp AMPERSAND    &kp PERCENT   &kp LESS_THAN         &kp GREATER_THAN
+&trans  &trans     &trans         &trans             &kp UNDERSCORE  &trans    &trans  &trans                        &trans        &trans                &trans
             >;
 
             sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
@@ -226,7 +226,7 @@
 &trans    &trans                &trans        &trans                 &trans                    &trans    &trans  &kp NUMBER_0                   &kp NUMBER_0  &kp DOT       &kp QUESTION
             >;
 
-            sensor-bindings = <&inc_dec_kp DOWN_ARROW UP_ARROW>;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
         //6
