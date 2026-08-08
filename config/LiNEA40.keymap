@@ -155,11 +155,28 @@
     };
 
     macros {
-        bt1_map: bt1_map {
+        bt0_mac_map: bt1_map {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none>;
+            bindings = <&bt BT_SEL 0>, <&macro_wait_time 200>, <&to 0>;
+
             label = "BT1_MAP";
+        };
+
+        bt1_win_map: bt1_win_map {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>, <&macro_wait_time 200>, <&to 1>;
+
+            label = "BT1_WIN_MAP";
+        };
+
+        bt2_ipad_map: bt2_ipad_map {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>, <&macro_wait_time 200>, <&to 0>;
+
+            label = "BT2_IPAD_MAP";
         };
     };
 
