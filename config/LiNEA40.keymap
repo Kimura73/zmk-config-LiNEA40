@@ -154,15 +154,24 @@
         };
     };
 
+    macros {
+        bt1_map: bt1_map {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>;
+            label = "BT1_MAP";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        MAC {
             bindings = <
-&kp Q                  &kp W      &kp E           &kp R    &kp T                                        &kp Y      &kp U  &kp I      &kp O       &kp P
-&homerow_mod LSHIFT A  &kp S      &kp D           &kp F    &kp G                                        &kp H      &kp J  &lt 5 K    &kp L       &homerow_mod RIGHT_SHIFT MINUS
-&homerow_mod LGUI Z    &kp X      &kp C           &kp V    &kp B                                        &kp N      &kp M  &mkp MB1   &mkp MB2    &gui_mb3 LGUI MB3
-&kp TAB                &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 5 LANG1  &lt 2 SPACE    &lt 4 BACKSPACE  &kp ENTER         &kp COMMA  &kp PERIOD  &lt 6 ESCAPE
+&kp Q                  &kp W      &kp E           &kp R    &kp T                                      &kp Y      &kp U  &kp I        &kp O       &kp P
+&homerow_mod LSHIFT A  &kp S      &kp D           &kp F    &kp G                                      &kp H      &kp J  &lt 5 K      &kp L       &homerow_mod RIGHT_SHIFT MINUS
+&homerow_mod LGUI Z    &kp X      &kp C           &kp V    &kp B                                      &kp N      &kp M  &mkp MB1     &mkp MB2    &gui_mb3 LGUI MB3
+&kp TAB                &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 5 LANG1  &lt 2 SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp PERIOD  &lt 6 ESCAPE
             >;
 
             sensor-bindings = <&re_kp RIGHT LEFT>;
@@ -170,13 +179,15 @@
 
         //1
 
-        MOUSE {
+        Windows {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &mkp MB1  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans    &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans            &trans  &trans  &trans
+&kp Q                        &kp W         &kp E                    &kp R    &kp T                                           &kp Y      &kp U  &kp I        &kp O     &kp P
+&homerow_mod A LEFT_SHIFT    &kp S         &kp D                    &kp F    &kp G                                           &kp H      &kp J  &lt 5 K      &kp L     &homerow_mod RIGHT_SHIFT MINUS
+&homerow_mod Z LEFT_CONTROL  &kp X         &kp C                    &kp V    &kp B                                           &kp N      &kp M  &mkp MB1     &mkp MB2  &gui_mb3 RIGHT_CONTROL MB3
+&kp TAB                      &kp LEFT_GUI  &mt LEFT_ALT LANGUAGE_2  &kp INS  &lt 5 LANGUAGE_1  &lt 2 SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp DOT   &lt 6 ESCAPE
             >;
+
+            sensor-bindings = <&re_kp RIGHT LEFT>;
         };
 
         //2
