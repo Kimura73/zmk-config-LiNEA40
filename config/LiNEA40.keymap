@@ -108,13 +108,13 @@
 &msc_input_listener {
     speed_up {
         layers = <FUNCTION>;
-        input-processors = <&zip_wheel_scaler 2 1>;
+        input-processors = <&zip_wheel_scaler 1 1>;
     };
 };
 
 
 &trackball_listener {
-    input-processors = <&zip_xy_scaler 3 4>;
+    input-processors = <&zip_xy_scaler 1 2>;
 
     scroller {
         layers = <SCROLL>;
