@@ -43,13 +43,13 @@
 // 上段2
 #define JP_SLASH      SLASH          // /
 #define JP_SEMI       SEMI           // ;
-#define JP_SQT        LEFT_BRACE     // '
+#define JP_SQT        LS(N7)         // '
 #define JP_EQUAL      UNDER          // =
 #define JP_AT         LEFT_BRACKET   // @
 #define JP_QMARK      LS(SLASH)      // ?
 #define JP_PLUS       COLON          // +
-#define JP_LPAR       ASTERISK       // (
-#define JP_RPAR       LEFT_PARENTHESIS  // )
+#define JP_LPAR       LS(N8)       // (
+#define JP_RPAR       LS(N9)  // )
 
 // 上段3
 #define JP_GRAVE      AMPERSAND      // `
