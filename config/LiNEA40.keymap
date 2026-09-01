@@ -8,65 +8,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-
-/* =========================================================
- * Layer numbers
- * ========================================================= */
-
 #define MOUSE 1
 #define MARK 2
 #define CURSOR 3
 #define FUNCTION 4
 #define SCROLL 5
 #define WIRELESS 6
-#define WIN_MARK 7
 
-
-/* =========================================================
- * Windows JIS symbol mapping
- *
- * Windows側が「日本語キーボード 106/109」の場合に、
- * US配列と同じ記号を入力するための補正。
- * ========================================================= */
-
-// 上段1
-#define JP_PIPE       LS(INT3)       // |
-#define JP_COLON      SQT            // :
-#define JP_DQT        LS(N2)         // "
-#define JP_MINUS      MINUS          // -
-#define JP_DOLLAR     LS(N4)         // $
-#define JP_EXCL       LS(N1)         // !
-#define JP_ASTRK      LS(SQT)        // *
-#define JP_LBKT       RBKT           // [
-#define JP_RBKT       BSLH           // ]
-
-// 上段2
-#define JP_SLASH      SLASH          // /
-#define JP_SEMI       SEMI           // ;
-#define JP_SQT        LS(N7)         // '
-#define JP_EQUAL      LS(MINUS)      // =
-#define JP_AT         LBKT           // @
-#define JP_QMARK      LS(SLASH)      // ?
-#define JP_PLUS       LS(SEMI)       // +
-#define JP_LPAR       LS(N8)         // (
-#define JP_RPAR       LS(N9)         // )
-
-// 上段3
-#define JP_GRAVE      LS(LBKT)       // `
-#define JP_TILDE      LS(EQUAL)      // ~
-#define JP_HASH       LS(N3)         // #
-#define JP_AMPS       LS(N6)         // &
-#define JP_PRCNT      LS(N5)         // %
-#define JP_LT         LS(COMMA)      // <
-#define JP_GT         LS(DOT)        // >
-
-// 下段
-#define JP_UNDER      LS(INT1)       // _
-
-
-/* =========================================================
- * Mouse cursor
- * ========================================================= */
+//mouse cursol
 
 &mmv {
     delay-ms = <20>;
@@ -75,10 +24,7 @@
     acceleration-exponent = <2>;
 };
 
-
-/* =========================================================
- * Mouse scroll
- * ========================================================= */
+//mouse scroll
 
 &msc {
     delay-ms = <3>;
@@ -86,11 +32,6 @@
     time-to-max-speed-ms = <100>;
     acceleration-exponent = <0>;
 };
-
-
-/* =========================================================
- * Input processors
- * ========================================================= */
 
 / {
     input_processors {
@@ -104,14 +45,12 @@
     };
 };
 
-
 &msc_input_listener {
     speed_up {
         layers = <FUNCTION>;
-        input-processors = <&zip_wheel_scaler 3 1>;
+        input-processors = <&zip_wheel_scaler 3 1>; //スクロールを3倍速にする
     };
 };
-
 
 &trackball_listener {
     input-processors = <&zip_xy_scaler 3 4>;
@@ -121,11 +60,6 @@
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
-
-
-/* =========================================================
- * Main
- * ========================================================= */
 
 / {
     combos {
@@ -166,11 +100,6 @@
             key-positions = <26 27>;
         };
     };
-
-
-    /* =====================================================
-     * Behaviors
-     * ===================================================== */
 
     behaviors {
         re_kp: sensor_rotate_kp {
@@ -225,20 +154,11 @@
         };
     };
 
-
-    /* =====================================================
-     * Bluetooth macros
-     * ===================================================== */
-
     macros {
         bt0_mac_map: bt1_map {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-
-            bindings =
-                <&bt BT_SEL 0>,
-                <&macro_wait_time 200>,
-                <&to 0>;
+            bindings = <&bt BT_SEL 0>, <&macro_wait_time 200>, <&to 0>;
 
             label = "BT1_MAP";
         };
@@ -246,11 +166,7 @@
         bt1_win_map: bt1_win_map {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-
-            bindings =
-                <&bt BT_SEL 1>,
-                <&macro_wait_time 200>,
-                <&to 1>;
+            bindings = <&bt BT_SEL 1>, <&macro_wait_time 200>, <&to 1>;
 
             label = "BT1_WIN_MAP";
         };
@@ -258,28 +174,14 @@
         bt2_ipad_map: bt2_ipad_map {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-
-            bindings =
-                <&bt BT_SEL 2>,
-                <&macro_wait_time 200>,
-                <&to 0>;
+            bindings = <&bt BT_SEL 2>, <&macro_wait_time 200>, <&to 0>;
 
             label = "BT2_IPAD_MAP";
         };
     };
 
-
-    /* =====================================================
-     * Keymap
-     * ===================================================== */
-
     keymap {
         compatible = "zmk,keymap";
-
-
-        /* =================================================
-         * 0 : MAC
-         * ================================================= */
 
         MAC {
             bindings = <
@@ -292,31 +194,20 @@
             sensor-bindings = <&re_kp RIGHT LEFT>;
         };
 
-
-        /* =================================================
-         * 1 : WINDOWS
-         *
-         * Space長押し:
-         *   変更前 → MARK(2)
-         *   変更後 → WIN_MARK(7)
-         * ================================================= */
+        //1
 
         Windows {
             bindings = <
 &kp Q                        &kp W         &kp E                    &kp R    &kp T                                           &kp Y      &kp U  &kp I        &kp O     &kp P
 &homerow_mod LEFT_SHIFT A    &kp S         &kp D                    &kp F    &kp G                                           &kp H      &kp J  &lt 5 K      &kp L     &homerow_mod RIGHT_SHIFT MINUS
 &homerow_mod LEFT_CONTROL Z  &kp X         &kp C                    &kp V    &kp B                                           &kp N      &kp M  &mkp MB1     &mkp MB2  &gui_mb3 RIGHT_CONTROL MB3
-&kp TAB                      &kp LEFT_GUI  &mt LEFT_ALT LANGUAGE_2  &kp INS  &lt 3 LANGUAGE_1  &lt WIN_MARK SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp DOT   &lt 6 ESCAPE
+&kp TAB                      &kp LEFT_GUI  &mt LEFT_ALT LANGUAGE_2  &kp INS  &lt 3 LANGUAGE_1  &lt 2 SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp DOT   &lt 6 ESCAPE
             >;
 
             sensor-bindings = <&re_kp RIGHT LEFT>;
         };
 
-
-        /* =================================================
-         * 2 : MARK
-         * Mac / iPad用
-         * ================================================= */
+        //2
 
         MARK {
             bindings = <
@@ -329,10 +220,7 @@
             sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
 
-
-        /* =================================================
-         * 3 : CURSOR
-         * ================================================= */
+        //3
 
         CURSOR {
             bindings = <
@@ -343,10 +231,7 @@
             >;
         };
 
-
-        /* =================================================
-         * 4 : FUNCTION
-         * ================================================= */
+        //4
 
         FUNCTION {
             bindings = <
@@ -359,10 +244,7 @@
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
-
-        /* =================================================
-         * 5 : SCROLL
-         * ================================================= */
+        //5
 
         SCROLL {
             bindings = <
@@ -375,10 +257,7 @@
             sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
-
-        /* =================================================
-         * 6 : WIRELESS
-         * ================================================= */
+        //6
 
         WIRELESS {
             bindings = <
@@ -389,27 +268,6 @@
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT_ARROW LEFT_ARROW>;
-        };
-
-
-        /* =================================================
-         * 7 : WIN_MARK
-         *
-         * Windows 106/109 JIS配列専用
-         *
-         * 配置はMARKレイヤーと同じ。
-         * 出力だけJIS Windows向けに変換。
-         * ================================================= */
-
-        WIN_MARK {
-            bindings = <
-&trans  &kp JP_PIPE   &kp JP_COLON  &kp JP_DQT    &kp JP_MINUS                         &kp JP_DOLLAR  &kp JP_EXCL   &kp JP_ASTRK  &kp JP_LBKT   &kp JP_RBKT
-&trans  &kp JP_SLASH  &kp JP_SEMI   &kp JP_SQT    &kp JP_EQUAL                         &kp JP_AT      &kp JP_QMARK  &kp JP_PLUS   &kp JP_LPAR   &kp JP_RPAR
-&trans  &trans        &trans        &kp JP_GRAVE  &kp JP_TILDE                         &kp JP_HASH    &kp JP_AMPS   &kp JP_PRCNT  &kp JP_LT     &kp JP_GT
-&trans  &trans        &trans        &trans        &kp JP_UNDER    &trans    &trans     &trans                       &trans        &trans        &trans
-            >;
-
-            sensor-bindings = <&re_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
     };
 };
