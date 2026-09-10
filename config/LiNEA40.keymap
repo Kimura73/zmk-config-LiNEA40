@@ -22,47 +22,38 @@
 
 /* =========================================================
  * Windows JIS symbol mapping
- *
- * Windows側が「日本語キーボード 106/109」の場合に、
- * US配列と同じ記号を入力するための補正。
  * ========================================================= */
-// 上段1
 
-#define JP_PIPE       LS(0x89)       // |
-#define JP_COLON      SINGLE_QUOTE   // :
-#define JP_DQT        AT             // "
-#define JP_MINUS      MINUS          // -
-#define JP_DOLLAR     LS(N4)         // $
-#define JP_EXCL       LS(N1)         // !
-#define JP_ASTRK      DOUBLE_QUOTES  // *
-#define JP_LBKT       RBKT           // [
-#define JP_RBKT       BSLH           // ]
+// 基本記号
+#define JP_PIPE       LS(INT3)   // |
+#define JP_COLON      SQT        // :
+#define JP_DQT        LS(N2)     // "
+#define JP_MINUS      MINUS      // -
+#define JP_DOLLAR     LS(N4)     // $
+#define JP_EXCL       LS(N1)     // !
+#define JP_ASTRK      LS(SQT)    // *
+#define JP_LBKT       RBKT       // [
+#define JP_RBKT       NUHS       // ]
 
-// 上段2
+#define JP_SLASH      SLASH      // /
+#define JP_SEMI       SEMI       // ;
+#define JP_SQT        LS(N7)     // '
+#define JP_EQUAL      LS(MINUS)  // =
+#define JP_AT         LBKT       // @
+#define JP_QMARK      LS(SLASH)  // ?
+#define JP_PLUS       LS(SEMI)   // +
+#define JP_LPAR       LS(N8)     // (
+#define JP_RPAR       LS(N9)     // )
 
-#define JP_SLASH      SLASH          // /
-#define JP_SEMI       SEMI           // ;
-#define JP_SQT        LS(N7)         // '
-#define JP_EQUAL      UNDER          // =
-#define JP_AT         LEFT_BRACKET   // @
-#define JP_QMARK      LS(SLASH)      // ?
-#define JP_PLUS       COLON          // +
-#define JP_LPAR       LS(N8)       // (
-#define JP_RPAR       LS(N9)  // )
+#define JP_GRAVE      LS(LBKT)   // `
+#define JP_TILDE      LS(EQUAL)  // ~
+#define JP_HASH       LS(N3)     // #
+#define JP_AMPS       LS(N6)     // &
+#define JP_PRCNT      LS(N5)     // %
+#define JP_LT         LS(COMMA)  // <
+#define JP_GT         LS(DOT)    // >
 
-// 上段3
-
-#define JP_GRAVE      AMPERSAND      // `
-#define JP_TILDE      PLUS           // ~
-#define JP_HASH       LS(N3)         // #
-#define JP_AMPS       CARET          // &
-#define JP_PRCNT      LS(N5)         // %
-#define JP_LT         LS(COMMA)      // <
-#define JP_GT         LS(DOT)        // >
-
-// 下段
-
-#define JP_UNDER      LS(0x87)       // _
+#define JP_UNDER      LS(INT1)   // _
 
 /* =========================================================
  * Mouse cursor
