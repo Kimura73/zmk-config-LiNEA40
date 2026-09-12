@@ -23,8 +23,8 @@
 /* =========================================================
  * Windows JIS symbol mapping
  * ========================================================= */
-
 // 基本記号
+
 #define JP_PIPE       LS(INT3)   // |
 #define JP_COLON      SQT        // :
 #define JP_DQT        LS(N2)     // "
@@ -34,7 +34,6 @@
 #define JP_ASTRK      LS(SQT)    // *
 #define JP_LBKT       RBKT       // [
 #define JP_RBKT       NUHS       // ]
-
 #define JP_SLASH      SLASH      // /
 #define JP_SEMI       SEMI       // ;
 #define JP_SQT        LS(N7)     // '
@@ -44,7 +43,6 @@
 #define JP_PLUS       LS(SEMI)   // +
 #define JP_LPAR       LS(N8)     // (
 #define JP_RPAR       LS(N9)     // )
-
 #define JP_GRAVE      LS(LBKT)   // `
 #define JP_TILDE      LS(EQUAL)  // ~
 #define JP_HASH       LS(N3)     // #
@@ -52,7 +50,6 @@
 #define JP_PRCNT      LS(N5)     // %
 #define JP_LT         LS(COMMA)  // <
 #define JP_GT         LS(DOT)    // >
-
 #define JP_UNDER      LS(INT1)   // _
 
 /* =========================================================
@@ -117,39 +114,39 @@
     combos {
         compatible = "zmk,combos";
 
-        ZenkakuHankaku {
-            bindings = <&kp GRAVE>;
-            key-positions = <11 12>;
-        };
-
         DeleteKey {
             bindings = <&kp DEL>;
-            key-positions = <7 8>;
-        };
-
-        InsertKey {
-            bindings = <&kp INS>;
-            key-positions = <6 7>;
-        };
-
-        CenterClick {
-            bindings = <&mkp MB3>;
-            key-positions = <17 16>;
-        };
-
-        RightClick {
-            bindings = <&mkp MB2>;
-            key-positions = <18 17>;
+            key-positions = <8 9>;
         };
 
         PrevClick {
             bindings = <&mkp MB4>;
-            key-positions = <27 28>;
+            key-positions = <13 12>;
         };
 
         ClickNext {
             bindings = <&mkp MB5>;
+            key-positions = <14 13>;
+        };
+
+        kana {
+            bindings = <&kp LANGUAGE_1>;
             key-positions = <26 27>;
+        };
+
+        eisu {
+            bindings = <&kp LANGUAGE_2>;
+            key-positions = <23 22>;
+        };
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <1 0>;
+        };
+
+        right_click {
+            bindings = <&mkp MB2>;
+            key-positions = <27 28>;
         };
     };
 
@@ -253,10 +250,10 @@
 
         MAC {
             bindings = <
-&kp Q                  &kp W      &kp E           &kp R    &kp T                                      &kp Y      &kp U  &kp I        &kp O       &kp P
-&homerow_mod LSHIFT A  &kp S      &kp D           &kp F    &kp G                                      &kp H      &kp J  &lt 5 K      &kp L       &homerow_mod RIGHT_SHIFT MINUS
-&homerow_mod LGUI Z    &kp X      &kp C           &kp V    &kp B                                      &kp N      &kp M  &mkp MB1     &mkp MB2    &gui_mb3 LGUI MB3
-&kp TAB                &kp LCTRL  &mt LALT LANG2  &kp INS  &lt 5 LANG1  &lt 2 SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp PERIOD  &lt 6 ESCAPE
+&kp Q                      &kp W         &kp E             &kp R    &kp T                                        &kp Y      &kp U  &kp I        &kp O         &kp P
+&kp A                      &kp S         &kp D             &kp F    &kp G                                        &kp H      &kp J  &lt 5 K      &kp L         &kp MINUS
+&homerow_mod LEFT_SHIFT Z  &kp X         &kp C             &kp V    &kp B                                        &kp N      &kp M  &mkp MB1     &kp QUESTION  &gui_mb3 RIGHT_SHIFT MB3
+&kp LEFT_GUI               &kp LEFT_ALT  &kp LEFT_CONTROL  &kp INS  &lt 5 AT_SIGN  &lt 2 SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp PERIOD    &lt 6 TAB
             >;
 
             sensor-bindings = <&re_kp RIGHT LEFT>;
@@ -272,10 +269,10 @@
 
         Windows {
             bindings = <
-&kp Q                        &kp W         &kp E                    &kp R    &kp T                                                  &kp Y      &kp U  &kp I        &kp O     &kp P
-&homerow_mod LEFT_SHIFT A    &kp S         &kp D                    &kp F    &kp G                                                  &kp H      &kp J  &lt 5 K      &kp L     &homerow_mod RIGHT_SHIFT MINUS
-&homerow_mod LEFT_CONTROL Z  &kp X         &kp C                    &kp V    &kp B                                                  &kp N      &kp M  &mkp MB1     &mkp MB2  &gui_mb3 RIGHT_CONTROL MB3
-&kp TAB                      &kp LEFT_GUI  &mt LEFT_ALT LANGUAGE_2  &kp INS  &lt 3 LANGUAGE_1  &lt WIN_MARK SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp DOT   &lt 6 ESCAPE
+&kp Q                      &kp W         &kp E         &kp R    &kp T                                               &kp Y      &kp U  &kp I        &kp O         &kp P
+&kp A                      &kp S         &kp D         &kp F    &kp G                                               &kp H      &kp J  &lt 5 K      &kp L         &kp MINUS
+&homerow_mod LEFT_SHIFT Z  &kp X         &kp C         &kp V    &kp B                                               &kp N      &kp M  &mkp MB1     &kp QUESTION  &gui_mb3 RIGHT_SHIFT MB3
+&kp LEFT_CONTROL           &kp LEFT_GUI  &kp LEFT_ALT  &kp INS  &lt 3 AT_SIGN  &lt WIN_MARK SPACE    &kp BACKSPACE  &kp ENTER         &lt 4 COMMA  &kp DOT       &lt 6 TAB
             >;
 
             sensor-bindings = <&re_kp RIGHT LEFT>;
