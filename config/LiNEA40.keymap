@@ -205,6 +205,14 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&mkp>;
         };
+
+        mouse_layer_tap: mouse_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <100>;
+            bindings = <&mo>, <&mkp>;
+        };
     };
 
     /* =====================================================
