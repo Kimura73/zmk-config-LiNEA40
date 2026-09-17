@@ -129,22 +129,22 @@
 
         PrevClick {
             bindings = <&mkp MB4>;
-            key-positions = <13 12>;
+            key-positions = <23 22>;
         };
 
         ClickNext {
             bindings = <&mkp MB5>;
-            key-positions = <14 13>;
+            key-positions = <24 23>;
         };
 
         kana {
             bindings = <&kp LANGUAGE_1>;
-            key-positions = <26 27>;
+            key-positions = <17 16>;
         };
 
         eisu {
             bindings = <&kp LANGUAGE_2>;
-            key-positions = <23 22>;
+            key-positions = <12 13>;
         };
 
         esc {
